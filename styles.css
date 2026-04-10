@@ -1,0 +1,170 @@
+/* ==================== BASE STYLES ==================== */
+* {
+    scroll-behavior: smooth;
+}
+
+/* Page visibility */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Sidebar active state */
+.sidebar-link.active {
+    background-color: #0d9488;
+    color: white;
+}
+
+/* ==================== STATUS BADGES ==================== */
+.status-pending {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.status-washing {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.status-drying {
+    background-color: #e0e7ff;
+    color: #3730a3;
+}
+
+.status-ready {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.status-delivered {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+/* ==================== CUSTOM SCROLLBAR ==================== */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page.active {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Toast animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#toast:not(.hidden) {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+@media (max-width: 768px) {
+    .sidebar-link span {
+        display: inline;
+    }
+}
+
+/* ==================== FORM FOCUS STATES ==================== */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #0d9488;
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+/* ==================== BUTTON HOVER EFFECTS ==================== */
+button {
+    transition: all 0.2s ease;
+}
+
+/* ==================== TABLE STYLES ==================== */
+table {
+    border-collapse: collapse;
+}
+
+th {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+/* ==================== CARD HOVER EFFECTS ==================== */
+.hover\:shadow-xl:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* ==================== PROGRESS BAR STYLES ==================== */
+.progress-bar {
+    transition: width 0.5s ease;
+}
+
+/* ==================== MOBILE SIDEBAR ==================== */
+@media (max-width: 768px) {
+    .mobile-sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 50;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .mobile-sidebar.open {
+        transform: translateX(0);
+    }
+    
+    .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 40;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .sidebar-overlay.open {
+        opacity: 1;
+        visibility: visible;
+    }
+}
